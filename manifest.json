@@ -1,0 +1,41 @@
+{
+  "name": "Replace",
+  "manifest_version": 2,
+  "description": "This extension replaces css files with other css files.",
+  "version": "0.1",
+  "background": {
+    "scripts": ["assets/js/background.js"],
+	"persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "file:///*"
+      ],
+      "js": [
+            "assets/js/jquery-1.10.2.min.js",
+            "assets/js/common.js",
+            "assets/js/replace.js",
+            "assets/js/content_script.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  
+  "web_accessible_resources": [
+      "assets/js/jquery-1.10.2.min.js",
+  	  "assets/js/jquery-1.10.2.min.map",
+
+      "assets/css/odesk.css",
+
+      "https://*/*"
+  ],
+	"permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}
+
